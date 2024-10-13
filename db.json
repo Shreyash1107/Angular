@@ -1,92 +1,44 @@
 {
   "users": [
     {
-      "id": "ad99",
-      "Name": "Akshay Lende",
-      "Status": "Not Submitted",
-      "date": "2024-10-10",
+      "id": "186e",
+      "Name": "User1",
+      "Status": "Pending",
+      "date": "2024-10-23",
       "Priority": "High",
       "Comments": "This was a Good Task"
     },
     {
-      "id": "ab83",
-      "Name": "Karan Chauhan",
-      "Status": "Incomplete",
-      "date": "2024-10-13",
-      "Priority": "Low",
-      "Comments": "This was a Average task"
-    },
-    {
-      "id": "7567",
-      "Name": "Sanket Sule",
-      "Status": "Pending",
-      "date": "2024-11-14",
-      "Priority": "High",
-      "Comments": "This was an Average Task"
-    },
-    {
-      "id": "cbbc",
-      "Name": "Ajay Amte",
-      "Status": "Pending",
-      "date": "2024-10-24",
-      "Priority": "Moderate",
-      "Comments": "This was an Average Task"
-    },
-    {
-      "id": "8777",
-      "Name": "Karan Patil",
-      "Status": "Pending",
-      "date": "2024-10-16",
-      "Priority": "Moderate",
-      "Comments": "This was a Average Task"
-    },
-    {
-      "id": "83e7",
-      "Name": "Jay Mahadik",
+      "id": "276b",
+      "Name": "User2",
       "Status": "In Progress",
-      "date": "2024-10-29",
-      "Priority": "High",
-      "Comments": "This was One Of the Tough Task"
-    },
-    {
-      "id": "432b",
-      "Name": "Shreyash Kawane",
-      "Status": "Pending",
-      "date": "2024-10-30",
-      "Priority": "High",
-      "Comments": "This was a Good Tasks"
-    },
-    {
-      "id": "392a",
-      "Name": "Shruti Patil",
-      "Status": "In Progress",
-      "date": "2024-10-23",
-      "Priority": "Moderate",
-      "Comments": "Task was Good"
-    },
-    {
-      "id": "01a6",
-      "Name": "Shantanu Patankar",
-      "Status": "Submitted",
       "date": "2024-10-12",
-      "Priority": "Moderate",
-      "Comments": "This was an Average Task"
+      "Priority": "Tough",
+      "Comments": "This was an Easy Task"
     },
     {
-      "id": "148c",
-      "Name": "Ashish Patil",
-      "Status": "Submitted",
+      "id": "4a54",
+      "Name": "User3",
+      "Status": "Incompleted",
+      "date": "2024-10-22",
+      "Priority": "Low",
+      "Comments": "This was a difficult task"
+    },
+    {
+      "id": "3e47",
+      "Name": "User7",
+      "Status": "SUbmitted",
+      "date": "2024-10-16",
+      "Priority": "Low",
+      "Comments": "This was an Easy task"
+    },
+    {
+      "id": "09c7",
+      "Name": "User8",
+      "Status": "Pending",
       "date": "2024-10-15",
       "Priority": "High",
-      "Comments": "This was an Average Task"
-    },
-    {
-      "id": "0c89",
-      "Name": "Yash patil",
-      "Status": "In Progress",
-      "date": "2024-10-16",
-      "Priority": "Moderate",
-      "Comments": "This was a Good Task"
+      "Comments": "This was an Easy Task"
     }
   ]
 }
