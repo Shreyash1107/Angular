@@ -17,4 +17,51 @@
     justify-content: center;
     width: 200px;
 }
-
+/* Container margin for mobile screens */
+.container {
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  /* Adjust form layout for smaller screens */
+  @media (max-width: 767px) {
+    .form-group {
+      width: 100%;
+    }
+  
+    .col-md-6 {
+      width: 100%;
+    }
+  
+    .text-right {
+      text-align: left;
+    }
+  
+    .btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  
+  /* Make the table scrollable on smaller screens */
+  @media (max-width: 768px) {
+    .table-responsive {
+      overflow-x: auto;
+      display: block;
+    }
+  
+    /* Reduce padding for smaller screens */
+    .container {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+  
+  /* Adjust pagination controls for better readability on smaller devices */
+  .pagination-controls {
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  

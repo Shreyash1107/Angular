@@ -1,7 +1,28 @@
 .header {
-    background-color: black !important;
-}
-
-.navbar-nav .nav-link:hover {
+    background-color: #007bff; /* Adjust as needed */
+  }
+  
+  .navbar-nav .nav-link:hover {
     color: coral !important;
 }
+  /* Style for the navbar brand */
+  .navbar-brand {
+    font-size: 1.5rem; /* Adjust font size */
+  }
+  
+  /* Adjust navbar links for smaller screens */
+  .navbar-nav .nav-link {
+    font-size: 1rem; /* Adjust font size */
+  }
+  
+  /* Media queries for further customization */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: column; /* Stack links vertically */
+    }
+  
+    .navbar-nav .nav-item {
+      margin: 0.5rem 0; /* Add margin between items */
+    }
+  }
+  

@@ -1,89 +1,100 @@
 <div class="container mt-4">
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item">
-          <a class="nav-link active" id="add-tasks-tab" data-toggle="tab" href="#add-tasks" role="tab" aria-controls="add-tasks" aria-selected="true">{{ editmode ? 'Update Task' : 'Add Task' }}</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" id="tasks-list-tab" data-toggle="tab" href="#tasks-list" role="tab" aria-controls="tasks-list" aria-selected="false">Tasks List</a>
-      </li>
-  </ul>
-  <div class="tab-content" id="myTabContent">
-      <!-- Add Task Form -->
-      <div class="tab-pane fade show active" id="add-tasks" role="tabpanel" aria-labelledby="add-tasks-tab">
-          <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-              <div class="row">
-                  <div class="form-group col-md-6">
-                      <label for="nameInput">Name</label>
-                      <input type="text" class="form-control" id="nameInput" name="Name" placeholder="User Name" [(ngModel)]="user.Name" required autocomplete="off">
-                  </div>
-                  <div class="form-group col-md-6">
-                      <label for="statusInput">Status</label>
-                      <input type="text" class="form-control" id="statusInput" name="Status" placeholder="Task Status" [(ngModel)]="user.Status" required autocomplete="off">
-                  </div>
-                  <div class="form-group col-md-6">
-                      <label for="dueDate">Due Date</label>
-                      <input type="date" class="form-control" id="dueDate" name="date" [(ngModel)]="user.date" required>
-                  </div>
-                  <div class="form-group col-md-6">
-                      <label for="priorityInput">Priority</label>
-                      <input type="text" class="form-control" id="priorityInput" name="Priority" placeholder="Task Priority" [(ngModel)]="user.Priority" required autocomplete="off">
-                  </div>
-                  <div class="form-group col-md-6">
-                      <label for="commentsInput">Comments</label>
-                      <input type="text" class="form-control" id="commentsInput" name="Comments" placeholder="Any Comments" [(ngModel)]="user.Comments" required autocomplete="off">
-                  </div>
-                  <div class="form-group col-md-6 d-flex align-items-end">
-                      <button type="submit" class="btn btn-primary py-1 px-3">{{ editmode ? 'Update Task' : 'Submit Task' }}</button>
-                      <button type="button" class="btn btn-secondary py-1 px-3 ml-2" (click)="onResetForm()">Reset</button>
-                  </div>
-              </div>
-          </form>
-      </div>
-<div class="tab-pane fade" id="tasks-list" role="tabpanel" aria-labelledby="tasks-list-tab">
-  <div class="container mt-4">
-      <div class="row mb-3">
-          <!-- Tasks heading on the left -->
-          <div class="col-md-6">
-              <h2>Tasks</h2>
-          </div>
-          <!-- Search box on the right -->
-          <div class="col-md-6 text-right">
-              <input type="text" class="form-control d-inline-block w-100" placeholder="Search">
-          </div>
-      </div>
-      <div class="mb-3">
-          <!-- Display total number of records -->
-          <p>Total Records: {{ tasklist.length }}</p>
-      </div>
-      <table class="table table-bordered">
-          <thead class="thead-light">
-              <tr>
-                  <th class="text-center"><input type="checkbox" /></th>
-                  <th class="text-center">Assigned To</th>
-                  <th class="text-center">Status</th>
-                  <th class="text-center">Due Date</th>
-                  <th class="text-center">Priority</th>
-                  <th class="text-center">Comments</th>
-                  <th class="text-center">Action</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor="let item of tasklist | paginate: { itemsPerPage: 5, currentPage: p }">
-                  <td class="text-center"><input type="checkbox" /></td>
-                  <td class="text-center">{{ item.Name }}</td>
-                  <td class="text-center">{{ item.Status }}</td>
-                  <td class="text-center">{{ item.date }}</td>
-                  <td class="text-center">{{ item.Priority }}</td>
-                  <td class="text-center">{{ item.Comments }}</td>
-                  <td class="text-center">
-                      <i class="fa fa-edit text-primary px-3" (click)="editTask(item)"></i>
-                      <i class="fa fa-trash text-danger" (click)="deleteTask(item.id!)"></i>
-                  </td>
-              </tr>
-          </tbody>
-      </table>
-      <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
-  </div>
-</div>
-  </div>
+    <!-- Tab navigation -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="add-task-tab" data-toggle="tab" href="#add-task" role="tab" aria-controls="add-task" aria-selected="true">Add Task</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="tasks-list-tab" data-toggle="tab" href="#tasks-list" role="tab" aria-controls="tasks-list" aria-selected="false">Tasks List</a>
+        </li>
+    </ul>
+
+    <!-- Tab content -->
+    <div class="tab-content" id="myTabContent">
+        <!-- Add Task Form -->
+        <div class="tab-pane fade show active" id="add-task" role="tabpanel" aria-labelledby="add-task-tab">
+            <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="nameInput">Name</label>
+                        <input type="text" class="form-control" id="nameInput" name="Name" placeholder="User Name" [(ngModel)]="user.Name" required autocomplete="off">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="statusInput">Status</label>
+                        <input type="text" class="form-control" id="statusInput" name="Status" placeholder="Task Status" [(ngModel)]="user.Status" required autocomplete="off">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="dueDate">Due Date</label>
+                        <input type="date" class="form-control" id="dueDate" name="date" [(ngModel)]="user.date" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="priorityInput">Priority</label>
+                        <input type="text" class="form-control" id="priorityInput" name="Priority" placeholder="Task Priority" [(ngModel)]="user.Priority" required autocomplete="off">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="commentsInput">Comments</label>
+                        <input type="text" class="form-control" id="commentsInput" name="Comments" placeholder="Any Comments" [(ngModel)]="user.Comments" required autocomplete="off">
+                    </div>
+                    <div class="form-group col-md-6 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary py-1 px-3">{{ editmode ? 'Update Task' : 'Submit Task' }}</button>
+                        <button type="button" class="btn btn-secondary py-1 px-3 ml-2" (click)="onResetForm()">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Tasks List -->
+        <div class="tab-pane fade" id="tasks-list" role="tabpanel" aria-labelledby="tasks-list-tab">
+            <div class="container mt-4">
+                <div class="row mb-3">
+                    <!-- Tasks heading on the left -->
+                    <div class="col-md-6">
+                        <h2>Tasks</h2>
+                    </div>
+                    <!-- Search box on the right -->
+                    <div class="col-md-6 text-right">
+                        <input type="text" class="form-control d-inline-block w-100" [(ngModel)]="searchTerm" (ngModelChange)="filterTasks()" placeholder="Search by name, status, or priority" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <!-- Display total number of records -->
+                    <p>Total Records: {{ filteredTaskList.length }}</p>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th class="text-center"><input type="checkbox" /></th>
+                                <th class="text-center">Assigned To</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Due Date</th>
+                                <th class="text-center">Priority</th>
+                                <th class="text-center">Comments</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of filteredTaskList | paginate: { itemsPerPage: 5, currentPage: p }">
+                                <td class="text-center"><input type="checkbox" /></td>
+                                <td class="text-center">{{ item.Name }}</td>
+                                <td class="text-center">{{ item.Status }}</td>
+                                <td class="text-center">{{ item.date }}</td>
+                                <td class="text-center">{{ item.Priority }}</td>
+                                <td class="text-center">{{ item.Comments }}</td>
+                                <td class="text-center">
+                                    <i class="fa fa-edit text-primary px-3" (click)="editTask(item)"></i>
+                                    <i class="fa fa-trash text-danger" (click)="deleteTask(item.id!)"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination controls -->
+                <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+            </div>
+        </div>
+    </div>
 </div>
